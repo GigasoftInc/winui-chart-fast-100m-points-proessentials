@@ -1,0 +1,63 @@
+<Window
+    x:Class="GigaPrime2D.WinUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:pe="using:Gigasoft.ProEssentials"
+    Title="GigaPrime2D WinUI — 100 Million Points">
+
+    <!-- RequestedTheme=Dark: the panel uses a dark custom background, so the default control chrome must be
+         the dark-theme (light) variants. Without it, WinUI's CheckBox/Button visual states pull the LIGHT-
+         theme (dark) foregrounds on hover/checked, making labels vanish on the dark bg + the unchecked box
+         border invisible. -->
+    <Grid Background="#002B35" RequestedTheme="Dark">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="190" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left control panel (WPF Separator -> Border line; Window background -> root Grid). -->
+        <StackPanel Grid.Column="0" Background="#002B35" Margin="8,8,4,8">
+
+            <CheckBox x:Name="timerControl" Content="Start/Stop Timer" Foreground="White"
+                      Margin="0,4,0,8" Checked="TimerControl_Changed" Unchecked="TimerControl_Changed" />
+
+            <Border Height="1" Background="#335566" Margin="0,0,0,8" />
+
+            <CheckBox x:Name="combineAxes" Content="Combine Axes" Foreground="White"
+                      Margin="0,2,0,2" Checked="CombineAxes_Changed" Unchecked="CombineAxes_Changed" />
+            <CheckBox x:Name="hideAxes" Content="Hide Overlapped Axes" Foreground="White" IsEnabled="False"
+                      Margin="0,2,0,2" Checked="HideAxes_Changed" Unchecked="HideAxes_Changed" />
+            <CheckBox x:Name="showLegend" Content="Show Legend" Foreground="White"
+                      Margin="0,2,0,8" Checked="ShowLegend_Changed" Unchecked="ShowLegend_Changed" />
+
+            <Border Height="1" Background="#335566" Margin="0,0,0,8" />
+
+            <TextBlock Text="Zoom X Axes" Foreground="White" FontSize="11" Margin="0,0,0,2" />
+            <Slider x:Name="sliderSampleView" Minimum="1" Maximum="1000" Value="175"
+                    TickFrequency="100" SmallChange="1" LargeChange="10" Margin="0,0,0,8"
+                    ValueChanged="SliderSampleView_ValueChanged" />
+
+            <Border Height="1" Background="#335566" Margin="0,0,0,8" />
+
+            <TextBlock Text="Highlight Signal" Foreground="White" FontSize="11" Margin="0,0,0,4" />
+            <CheckBox x:Name="highlightAxis1" Content="Signal 1" Foreground="#FF0045" Margin="0,2,0,2"
+                      Checked="HighlightAxis1_Changed" Unchecked="HighlightAxis1_Changed" />
+            <CheckBox x:Name="highlightAxis2" Content="Signal 2" Foreground="#3FFF00" Margin="0,2,0,2"
+                      Checked="HighlightAxis2_Changed" Unchecked="HighlightAxis2_Changed" />
+            <CheckBox x:Name="highlightAxis3" Content="Signal 3" Foreground="#FFA800" Margin="0,2,0,2"
+                      Checked="HighlightAxis3_Changed" Unchecked="HighlightAxis3_Changed" />
+            <CheckBox x:Name="highlightAxis4" Content="Signal 4" Foreground="#FF14FF" Margin="0,2,0,2"
+                      Checked="HighlightAxis4_Changed" Unchecked="HighlightAxis4_Changed" />
+            <CheckBox x:Name="highlightAxis5" Content="Signal 5" Foreground="#1AFFFF" Margin="0,2,0,8"
+                      Checked="HighlightAxis5_Changed" Unchecked="HighlightAxis5_Changed" />
+
+            <Border Height="1" Background="#335566" Margin="0,0,0,8" />
+
+            <Button Content="Help" Background="#335566" Foreground="White" BorderBrush="#557788"
+                    Padding="8,4" HorizontalAlignment="Left" Click="HelpButton_Click" />
+        </StackPanel>
+
+        <!-- Right chart panel -->
+        <pe:PesgoWinUI x:Name="Pesgo1" Grid.Column="1" Margin="4,8,8,8" Loaded="Pesgo1_Loaded" />
+    </Grid>
+</Window>
