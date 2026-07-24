@@ -8,6 +8,12 @@ Live FPS displayed in the title bar.
 
 ---
 
+> **Found ProEssentials through this repo?** Use code **GITHUB15_OCT31** at checkout for 15% off your first license.
+>
+> Thanks for sharing — every share and star helps another engineer find this repo.
+
+---
+
 ## What This Demonstrates
 
 GigaPrime2D WinUI demonstrates ProEssentials v11 GPU compute shader rendering of
