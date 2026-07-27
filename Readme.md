@@ -71,7 +71,7 @@ require. All three versions use identical GPU compute shaders.
 | Version | Render Time | End-to-End FPS |
 |---------|-------------|----------------|
 | WinForms | ~15ms | ~20 FPS |
-| WPF | ~15ms | ~17 FPS |
+| WPF | ~16ms | ~17 FPS |
 
 WinUI composites through a swap chain like WPF, so expect throughput in the same
 range — run it and read the title bar for the number on your own hardware.
